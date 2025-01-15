@@ -3,7 +3,4 @@ flask-wtf==1.1.1    # Per gestire form con Flask
 sqlalchemy==2.0.0   # Per gestire database relazionali
 wtforms==3.0.1      # Per la gestione dei form
 requests==2.31.0    # Per fare richieste HTTP
-pillow==9.6.0       # Per la manipolazione di immagini
-gunicorn==21.2.0    # Server WSGI per distribuzione
-numpy==1.24.2       # Per operazioni matematiche complesse
 matplotlib==3.7.1   # Per la creazione di grafici
