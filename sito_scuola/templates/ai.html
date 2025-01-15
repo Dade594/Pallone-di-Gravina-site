@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interagisci con l'IA</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div id="menu">
+        <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
+        <nav id="sidebar">
+            <a href="/">🏠 Home</a>
+            <a href="/storia">📖 Storia</a>
+            <a href="/galleria">🖼️ Galleria</a>
+            <a href="/feedback">💡 Feedback</a>
+            <a href="/ai">⭐ IA</a>
+        </nav>
+    </div>
+
+    <div class="container">
+        <h1>Interagisci con l'IA</h1>
+
+        <section class="ai-section">
+            <div id="questions-container">
+                <ul id="suggested-questions" style="display: none;">
+                    <li onclick="askQuestion('Quando è stato inventato il pallone di Gravina?')">Quando è stato inventato il pallone di Gravina?</li>
+                    <li onclick="askQuestion('Che sapore ha?')">Che sapore ha?</li>
+                    <li onclick="askQuestion('Che forma ha il pallone di Gravina?')">Che forma ha il pallone di Gravina?</li>
+                    <li onclick="askQuestion('Quanto costa il pallone di Gravina?')">Quanto costa il pallone di Gravina?</li></li>
+                    <li onclick="askQuestion('Dove si produce il pallone di Gravina?')">Dove si produce il pallone di Gravina?</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="ai-section">
+            <h2>Chiedi qualcosa</h2>
+            <div class="input-container">
+                <textarea id="user-query" placeholder="Scrivi la tua domanda..."></textarea>
+                <button type="submit" id="send-btn">Invia</button>
+                <button class="suggestion-button" onclick="toggleQuestions()">▼</button>
+            </div>
+            <div id="ai-response"></div>
+        </section>
+
+        <p style="font-size: 12px; color: gray;">Questa IA è ancora in via di sviluppo e può rispondere solo alle domande consigliate.</p>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('sidebar').classList.toggle('open');
+        }
+
+        function toggleQuestions() {
+            const questions = document.getElementById('suggested-questions');
+            const button = document.querySelector('.suggestion-button');
+            if (questions.style.display === 'none') {
+                questions.style.display = 'block';
+                button.textContent = '▲';
+            } else {
+                questions.style.display = 'none';
+                button.textContent = '▼';
+            }
+        }
+
+        function askQuestion(question) {
+            document.getElementById('user-query').value = question;
+            submitQuestion();
+            toggleQuestions(); // Nascondi le domande dopo averne selezionata una
+        }
+
+        document.getElementById('send-btn').addEventListener('click', function(event) {
+            event.preventDefault();
+            submitQuestion();
+        });
+
+        function submitQuestion() {
+            const query = document.getElementById('user-query').value;
+
+            fetch('/ai', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: 'query=' + encodeURIComponent(query)
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('ai-response').innerText = data.response;
+            })
+            .catch(error => console.error('Errore:', error));
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crediti - Pallone di Gravina</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div id="menu">
+        <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
+        <nav id="sidebar">
+            <a href="/">🏠 Home</a>
+            <a href="/storia">📖 Storia</a>
+            <a href="/galleria">🖼️ Galleria</a>
+            <a href="/feedback">💡 Feedback</a>
+            <a href="/crediti">⭐ Crediti</a>
+        </nav>
+    </div>
+    <main>
+        <h1>Crediti e AI</h1>
+
+        <section>
+            <h2>Domande consigliate</h2>
+            <button onclick="toggleQuestions()">Mostra/Chiudi domande</button>
+            <ul id="suggested-questions" style="display: none;">
+                <li>Cos'è il Pallone di Gravina?</li>
+                <li>Che cos'è il Caciocavallo?</li>
+                <li>Qual è la storia del Pallone di Gravina?</li>
+                <li>Parlami della cucina pugliese</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Chiedi qualcosa</h2>
+            <form id="ai-form">
+                <label for="user-query">Scrivi la tua domanda:</label>
+                <input type="text" id="user-query" name="query" required>
+                <button type="submit">Invia</button>
+            </form>
+            <div id="ai-response"></div>
+            <div id="suggestions"></div>
+        </section>
+    </main>
+    <script>
+        function toggleMenu() {
+            document.getElementById('sidebar').classList.toggle('open');
+        }
+
+        function toggleQuestions() {
+            const questions = document.getElementById('suggested-questions');
+            questions.style.display = questions.style.display === 'none' ? 'block' : 'none';
+        }
+
+        document.getElementById('ai-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const query = document.getElementById('user-query').value;
+
+            fetch('/ai', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: 'query=' + encodeURIComponent(query)
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('ai-response').innerText = data.response;
+
+                const suggestionsDiv = document.getElementById('suggestions');
+                if (data.suggestions.length > 0) {
+                    suggestionsDiv.innerHTML = `<h3>Domande simili:</h3><ul>${data.suggestions.map(q => `<li>${q}</li>`).join('')}</ul>`;
+                } else {
+                    suggestionsDiv.innerHTML = "";
+                }
+            })
+            .catch(error => console.error('Errore:', error));
+        });
+    </script>
+</body>
+</html>

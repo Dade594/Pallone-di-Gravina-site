@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback - Pallone di Gravina</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div id="menu">
+        <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
+        <nav id="sidebar">
+            <a href="/">🏠 Home</a>
+            <a href="/storia">📖 Storia</a>
+            <a href="/galleria">🖼️ Galleria</a>
+            <a href="/feedback">💡 Feedback</a>
+            <a href="/ai">⭐ IA</a>
+        </nav>
+    </div>
+
+    <main>
+        <h1>Scrivici un Feedback</h1>
+        
+        <div class="feedback-board">
+            <h2>Bacheca Feedback</h2>
+            <div id="feedback-list" class="feedback-list">
+                <!-- I feedback verranno caricati qui dinamicamente -->
+            </div>
+        </div>
+
+        <div class="feedback-form">
+            <h2>Lascia il tuo Feedback</h2>
+            <textarea id="user-feedback" 
+                      placeholder="Si raccomanda di non scrivere recensioni offensive."
+                      required></textarea>
+            <button onclick="sendFeedback()">Pubblica Feedback</button>
+        </div>
+    </main>
+
+    <script>
+        function toggleMenu() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('open');
+        }
+
+        function sendFeedback() {
+            const feedbackText = document.getElementById('user-feedback').value;
+            if (!feedbackText.trim()) {
+                alert('Per favore, scrivi un feedback prima di inviare.');
+                return;
+            }
+
+            const feedbackList = document.getElementById('feedback-list');
+            const newFeedback = document.createElement('div');
+            const date = new Date().toLocaleDateString('it-IT');
+            newFeedback.innerHTML = `
+                <p>
+                    <strong>${date}</strong><br>
+                    ${feedbackText}
+                </p>
+            `;
+            
+            feedbackList.insertBefore(newFeedback, feedbackList.firstChild);
+            document.getElementById('user-feedback').value = '';
+        }
+    </script>
+</body>
+</html>

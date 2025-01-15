@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Pagina non trovata</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div id="menu">
+        <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
+        <nav id="sidebar">
+            <a href="/">🏠 Home</a>
+            <a href="/storia">📖 Storia</a>
+            <a href="/galleria">🖼️ Galleria</a>
+            <a href="/feedback">💡 Feedback</a>
+            <a href="/crediti">⭐ Crediti</a>
+        </nav>
+    </div>
+    <main>
+        <h1>Pagina non trovata</h1>
+        <p style="text-align: center;">La pagina che stai cercando non esiste.</p>
+        <div style="text-align: center; margin-top: 20px;">
+            <a href="/" style="display: inline-block; padding: 10px 20px; background: #1f1f1f; color: white; text-decoration: none; border-radius: 5px;">
+                Torna alla Home
+            </a>
+        </div>
+    </main>
+    <script>
+        function toggleMenu() {
+            document.getElementById('sidebar').classList.toggle('open');
+        }
+    </script>
+</body>
+</html>

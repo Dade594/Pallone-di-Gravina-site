@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Pallone di Gravina</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div id="menu">
+        <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
+        <nav id="sidebar">
+            <a href="/">🏠 Home</a>
+            <a href="/storia">📖 Storia</a>
+            <a href="/galleria">🖼️ Galleria</a>
+            <a href="/feedback">💡 Feedback</a>
+        </nav>
+    </div>
+    <main>
+        <h1>Benvenuto al sito del Pallone di Gravina</h1>
+        <p>
+            Scopri la storia, le tradizioni e le curiosità legate al Pallone di Gravina. Esplora la galleria fotografica
+            e interagisci con la nostra intelligenza artificiale per approfondire la conoscenza di questa antica tradizione.
+        </p>
+    </main>
+    <script>
+        function toggleMenu() {
+            document.getElementById('sidebar').classList.toggle('open');
+        }
+    </script>
+</body>
+</html>

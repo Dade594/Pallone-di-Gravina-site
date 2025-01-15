@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Pallone di Gravina</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        h1 {
+            color: #f4a261;
+            text-align: center;
+        }
+
+        h2 {
+            color: #0e3f39;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        .content-section {
+            background-color: #a7c7e7;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 800px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        a {
+            text-decoration: none;
+            color: #264653;
+            font-weight: bold;
+        }
+
+        a:hover {
+            color: #e76f51;
+        }
+    </style>
+</head>
+<body>
+    <div id="menu">
+        <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
+        <nav id="sidebar">
+            <a href="/">🏠 Home</a>
+            <a href="/storia">📖 Storia</a>
+            <a href="/galleria">🖼️ Galleria</a>
+            <a href="/feedback">💡 Feedback</a>
+            <a href="/ai">⭐ IA</a>
+        </nav>
+    </div>
+    <main>
+        <h1>🌟 Benvenuto nel sito del Pallone di Gravina 🌟</h1>
+
+        <section class="content-section">
+            <h2>🧀 Il Pallone di Gravina</h2>
+            <p>
+                Durante tutti questi anni, questo prodotto continua ad essere così apprezzato tanto da essere diventato, nell'agosto 2010, un <strong>Prodotto Tradizionale Regionale</strong> e, nell'ottobre 2012, <strong>Presidio Slow Food</strong>. 
+            </p>
+            <p>
+                Il Pallone di Gravina è un formaggio a forma sferica, simile al caciocavallo, prodotto con <strong>latte crudo</strong> proveniente dalle masserie del territorio della Murgia Alta e di Gravina in Puglia.
+            </p>
+            <p>
+                Le sue origini sono molto remote: nel <em>Parco Archeologico di Botromagno</em> a Gravina in Puglia sono stati trovati reperti che testimoniano la sua lunga storia. All’interno dei corredi funebri dell’antica Sidion greca, poi Silvium romana, sono stati rinvenuti strumenti per la lavorazione del latte e persino una grattugia per formaggi a scorza dura come il Pallone di Gravina.
+            </p>
+            <p>
+                Nel <strong>2012</strong> è stato istituito il <strong>Presidio Slow Food Pallone di Gravina</strong>, grazie all'impegno dei produttori, della locale condotta Slow Food e dell'Associazione Murgiamadre.
+            </p>
+            <p>
+                I caseifici che producono il Pallone di Gravina utilizzano latte proveniente dal Bacino della Murgia Alta e della Fossa Bradanica, due tra i migliori dell'Italia del Sud. Storicamente prodotto anche con latte di Podolica, oggi si utilizzano razze come Frisona, Pezzata Rossa e Bruna Alpina.
+            </p>
+        </section>
+    </main>
+
+    <script>
+        function toggleMenu() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>

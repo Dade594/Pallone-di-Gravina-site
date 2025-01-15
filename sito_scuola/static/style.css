@@ -1,0 +1,318 @@
+/* Generale */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #a7c7e7;
+    color: #fff;
+}
+
+/* Menu laterale con colori scuri */
+#menu {
+    position: relative;
+}
+
+.menu-toggle {
+    font-size: 30px;
+    color: #fff;
+    padding: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.menu-toggle:hover {
+    transform: translateX(5px);
+}
+
+#sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background: linear-gradient(to right, #1a1a1a, #2d2d2d);
+    display: flex;
+    flex-direction: column;
+    transition: left 0.3s ease;
+    z-index: 1000;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.3);
+}
+
+#sidebar.open {
+    left: 0;
+}
+
+#sidebar a {
+    color: #fff;
+    text-decoration: none;
+    padding: 15px;
+    text-align: left;
+    margin: 5px 10px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid #404040;
+}
+
+#sidebar a:hover {
+    background: #404040;
+    transform: translateX(10px);
+}
+
+/* Main content con padding per il menu */
+main {
+    padding: 20px;
+    margin-left: 20px;
+    transition: margin-left 0.3s ease;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#sidebar.open ~ main {
+    margin-left: 270px;
+}
+
+/* Fluorescenza */
+.fluorescent {
+    font-size: 2.5rem;
+    text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff;
+}
+
+/* Galleria a due colonne */
+.image-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 20px;
+}
+
+.image-box {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.image-box img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+
+.image-box img:hover {
+    transform: scale(1.05);
+}
+
+/* Form e input styling */
+.input-container {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+textarea, input[type="text"] {
+    width: calc(100% - 120px);
+    padding: 12px;
+    border: 2px solid #ffd700;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.9);
+    margin: 10px 0;
+    font-size: 16px;
+    color: #333;
+    resize: vertical;
+}
+
+textarea:focus, input[type="text"]:focus {
+    outline: none;
+    border-color: #ffed4a;
+    box-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+}
+
+/* Feedback styling */
+.feedback-board {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.feedback-list {
+    max-height: 400px;
+    overflow-y: auto;
+    padding: 15px;
+    scrollbar-width: thin;
+    scrollbar-color: #ffd700 #2d2d2d;
+}
+
+.feedback-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.feedback-list::-webkit-scrollbar-track {
+    background: #2d2d2d;
+    border-radius: 4px;
+}
+
+.feedback-list::-webkit-scrollbar-thumb {
+    background: #ffd700;
+    border-radius: 4px;
+}
+
+.feedback-list p {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border-left: 4px solid #ffd700;
+}
+
+.feedback-form {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+/* Button styling */
+button {
+    background: #ffd700;
+    color: #333;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    display: inline-block;
+    margin: 10px 0;
+}
+
+button:hover {
+    background: #ffed4a;
+    transform: translateY(-2px);
+}
+
+.suggestion-button {
+    background: #404040;
+    padding: 12px 15px;
+    color: #fff;
+}
+
+/* Content sections */
+.content-section {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+/* AI section styling */
+.ai-section {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+#ai-response {
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    border-left: 4px solid #ffd700;
+}
+
+/* Suggested questions styling */
+#suggested-questions {
+    position: absolute;
+    right: 0;
+    background: #2d2d2d;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    margin-top: 5px;
+    z-index: 100;
+    list-style: none;
+}
+
+#suggested-questions li {
+    padding: 8px 12px;
+    cursor: pointer;
+    border-bottom: 1px solid #404040;
+    color: #fff;
+    transition: background 0.3s ease;
+}
+
+#suggested-questions li:hover {
+    background: #404040;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .image-container {
+        grid-template-columns: 1fr;
+    }
+
+    main {
+        padding: 10px;
+    }
+
+    #sidebar.open ~ main {
+        margin-left: 20px;
+    }
+
+    .input-container {
+        flex-direction: column;
+    }
+
+    textarea, input[type="text"] {
+        width: 100%;
+    }
+
+    .suggestion-button {
+        width: auto;
+    }
+/* ... (tutto il CSS precedente rimane uguale fino alla sezione della galleria) ... */
+
+/* Galleria a due colonne con aspect ratio fisso */
+.image-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 20px;
+}
+
+.image-box {
+    width: 100%;
+    position: relative;
+    padding-bottom: 75%; /* Aspect ratio 4:3 */
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.image-box img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Mantiene le proporzioni coprendo lo spazio disponibile */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+
+.image-box img:hover {
+    transform: scale(1.05);
+}
+
+/* ... (il resto del CSS rimane uguale) ... */
+
+/* Aggiunta nella sezione responsive */
+@media (max-width: 768px) {
+    .image-box {
+        padding-bottom: 100%; /* Aspect ratio 1:1 su mobile */
+    }
+    /* ... (resto del responsive rimane uguale) ... */
+}
+}

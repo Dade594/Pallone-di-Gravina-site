@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galleria - Pallone di Gravina</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div id="menu">
+        <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
+        <nav id="sidebar">
+            <a href="/">🏠 Home</a>
+            <a href="/storia">📖 Storia</a>
+            <a href="/galleria">🖼️ Galleria</a>
+            <a href="/feedback">💡 Feedback</a>
+            <a href="/ai">⭐ IA</a>
+        </nav>
+    </div>
+    <main>
+        <h1>Galleria Fotografica</h1>
+        <div class="image-container">
+            <div class="image-box">
+                <img src="/static/images/pallone1.jpg" alt="Pallone di Gravina 1">
+            </div>
+            <div class="image-box">
+                <img src="/static/images/pallone2.jpg" alt="Pallone di Gravina 2">
+            </div>
+            <div class="image-box">
+                <img src="/static/images/pallone3.jpg" alt="Pallone di Gravina 3">
+            </div>
+            <div class="image-box">
+                <img src="/static/images/pallone4.jpg" alt="Pallone di Gravina 4">
+            </div>
+        </div>
+    </main>
+    <footer style="text-align: center; font-size: small; margin-top: 20px; color: gray;">
+        <p>Crediti immagini:</p>
+        <ul style="list-style-type: none; padding: 0; margin: 0;">
+            <li>- <a href="https://www.pietroamendolara.it/formaggi_il_pallone_di_gravina_presidio_slow_food-p21033" target="_blank">1ª immagine</a></li>
+            <li>- <a href="https://www.pietroamendolara.it/formaggi_il_pallone_di_gravina_presidio_slow_food-p21033" target="_blank">2ª immagine</a></li>
+            <li>- <a href="https://www.onaf.it/index.php?c=index&a=schedaformaggio&id=865" target="_blank">3ª immagine</a></li>
+            <li>- <a href="https://www.onaf.it/index.php?c=index&a=schedaformaggio&id=865" target="_blank">4ª immagine</a></li>
+        </ul>
+        <p>Crediti Sito Web:</p>
+        <ul style="list-style-type: none; padding: 0; margin: 0;">
+            <li>- Creazione sito web: Davide Dongiovanni</li>
+            <li>- Creazione testi: Francesco Paolo Pace e Francesco Delia</li>
+        </ul>
+    </footer>
+    <script>
+        function toggleMenu() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>

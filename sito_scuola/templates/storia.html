@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Storia - Pallone di Gravina</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        /* Stile per evidenziare sezioni e aggiungere colore */
+        h1, h2 {
+            color: #0066cc; /* Blu acceso */
+        }
+        .content-section p {
+            line-height: 1.6;
+        }
+        .content-section ul {
+            color: #333;
+        }
+        footer {
+            background-color: #a7c7e7;
+            padding: 10px;
+            text-align: center;
+            font-size: 0.9em;
+            border-top: 2px solid #ccc;
+        }
+        footer ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        footer li {
+            margin: 5px 0;
+        }
+        footer a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div id="menu">
+        <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
+        <nav id="sidebar">
+            <a href="/">🏠 Home</a>
+            <a href="/storia">📖 Storia</a>
+            <a href="/galleria">🖼️ Galleria</a>
+            <a href="/feedback">💡 Feedback</a>
+            <a href="/ai">⭐ IA</a>
+        </nav>
+    </div>
+    <main>
+        <h1>La Storia del Pallone di Gravina</h1>
+        
+        <section class="content-section">
+            <h2>Le Origini</h2>
+            <p>
+                Le origini sono molto remote: i reperti rinvenuti nel Parco Archeologico di Botromagno a Gravina in Puglia, danno diverse testimonianze. Infatti all’interno dei corredi funebri dell’antica Sidion greca, poi Silvium romana, sono stati ritrovati tra gli addobbi funerari (risalenti appunto al VII secolo a.C., periodo di dimora Peuceta) strumenti per la lavorazione del latte ed, addirittura, una grattugia o gratta-cacio per formaggi a scorza dura come il Pallone di Gravina. 🧀
+            </p>
+            <h3>Caratteristiche:</h3>
+            <ul>
+                <li>✅ Tipo di formaggio: È un formaggio a pasta filata, simile al caciocavallo, ottenuto da latte vaccino intero.</li>
+                <li>✅ Aspetto: Ha una crosta liscia e di colore giallo paglierino, che diventa più scura con la stagionatura. La pasta interna è compatta e di colore giallo paglierino, che tende a dorarsi con l’invecchiamento.</li>
+                <li>✅ Peso: Generalmente pesa tra 1,5 e 2,5 kg.</li>
+                <li>✅ Sapore: Il gusto è delicato nelle forme più giovani, diventando più intenso e leggermente piccante con la maturazione.</li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>Crediti:</p>
+        <ul>
+            <li>📜 Creazione sito web: <b>Davide Dongiovanni</b></li>
+            <li>📜 Creazione testi: <b>Francesco Paolo Pace</b> e <b>Francesco Delia</b></li>
+        </ul>
+    </footer>
+    <script>
+        function toggleMenu() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
